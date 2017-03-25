@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace DataSource
 {
-    public class DemoContext
+    public class Product
     {
-        public DemoContext()
-        {
-        }
-    }
+		public int Id { get; set; }
+		public string Name { get; set; }
+		public decimal Price { get; set; }
+	}
 }
