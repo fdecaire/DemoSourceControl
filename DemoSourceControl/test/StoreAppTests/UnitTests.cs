@@ -15,5 +15,11 @@ namespace StoreAppTests
 	    {
 		    Assert.False(false);
 	    }
+
+	    [Fact]
+	    public void TestOne()
+	    {
+		    Assert.Equal(1, 1);
+	    }
     }
 }
