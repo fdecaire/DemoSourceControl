@@ -1,12 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DataSource.Domain;
+using DataSource.Repository;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataSource
 {
     public class StoreAppContext : DbContext, IStoreAppContext
     {
-	    private readonly string _connectionString = "";
-
-		public StoreAppContext(DbContextOptions options)
+		public StoreAppContext(DbContextOptions<StoreAppContext> options)
         : base(options)
 	    {
 
@@ -14,9 +14,14 @@ namespace DataSource
 
 		public DbSet<Product> Products { get; set; }
 
-		public void MarkAsModified(Product item)
+	    public new int SaveChanges()
+	    {
+			return base.SaveChanges();
+	    }
+
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			Entry(item).State = EntityState.Modified;
+			modelBuilder.AddProduct("dbo");
 		}
 	}
 }

@@ -7,7 +7,11 @@
         "NETStandard.Library": "1.6.1",
         "Microsoft.NETCore.App": "1.1.1",
         "xunit": "2.2.0",
-        "dotnet-test-xunit": "2.2.0-preview2-build1029"
+        "dotnet-test-xunit": "2.2.0-preview2-build1029",
+        "Microsoft.EntityFrameworkCore": "1.1.1",
+        "Microsoft.EntityFrameworkCore.SqlServer": "1.1.1",
+        "Microsoft.AspNetCore.TestHost": "1.0.0",
+        "Microsoft.EntityFrameworkCore.InMemory": "1.1.1"
     },
 
     "Microsoft.NETCore.App": {

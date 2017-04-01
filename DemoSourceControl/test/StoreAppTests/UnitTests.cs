@@ -1,25 +1,34 @@
-﻿using Xunit;
+﻿using System.Linq;
+using DataSource;
+using Xunit;
 
 namespace StoreAppTests
 {
-    public class UnitTests
-    {
-		[Fact]
-	    public void TestTrue()
+    public class UnitTests : IClassFixture<UnitTestsFixture>
+	{
+	    private StoreAppContext _storeAppContext;
+
+		public UnitTests(UnitTestsFixture fixture)
 		{
-			Assert.True(true);
+			_storeAppContext = fixture.Context;
 		}
 
 	    [Fact]
-	    public void TestFalse()
+	    public void TestQueryAll()
 	    {
-		    Assert.False(false);
+			var temp = (from p in _storeAppContext.Products select p).ToList();
+
+		    Assert.Equal(2, temp.Count);
+			Assert.Equal("Rice", temp[0].Name);
+			Assert.Equal("Bread", temp[1].Name);
 	    }
 
 	    [Fact]
-	    public void TestOne()
+	    public void TestSelectBread()
 	    {
-		    Assert.Equal(1, 1);
-	    }
+		    var temp = (from p in _storeAppContext.Products where p.Name == "Bread" select p.Name).FirstOrDefault();
+
+			Assert.Equal("Bread", temp);
+		}
     }
 }

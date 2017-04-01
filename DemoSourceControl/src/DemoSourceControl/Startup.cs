@@ -27,9 +27,11 @@ namespace DemoSourceControl
         {
             // Add framework services.
             services.AddMvc();
+
 			services.AddDbContext<StoreAppContext>(options =>
 				options.UseSqlServer(Configuration.GetConnectionString("Default")));
 
+			services.AddScoped<IStoreAppContext>(provider => provider.GetService<StoreAppContext>());
 		}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

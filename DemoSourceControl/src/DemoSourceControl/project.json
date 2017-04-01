@@ -1,8 +1,6 @@
 {
     "dependencies": {
         "Serilog.Extensions.Logging.File": "1.0.0",
-        "Swashbuckle.SwaggerGen": "6.0.0-beta901",
-        "Swashbuckle.SwaggerUi": "6.0.0-beta901",
         "Microsoft.AspNetCore.Mvc": "1.1.1",
         "Microsoft.AspNetCore.Routing": "1.1.0",
         "Microsoft.AspNetCore.Server.IISIntegration": "1.1.0",
